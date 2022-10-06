@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+        </section>
+        <section class="header">
+            <h1>Python Developer</h1>
+            <p>Growing and learning each day!</p>
+            <img src="https://cdn.pixabay.com/photo/2019/11/23/14/52/rattlesnake-4647318__480.jpg" alt="Headshot of myself">
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I'm looking for work in Python development! In addition to programming,
+                I'm interested in FinTech, language learning
+                (I'm currently learning Spanish), yoga, and
+                Brazilian Jiu Jitsu.
+            </p>
+            <div id="triangle1"></div>
+            <div id="triangle2"></div>
+        </section>
+        <section id="skills">
+            <i class="fas fa-laptop-code"></i>
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQLAlchemy</li>
+                <li>Object-Oriented Programming</li>
+                <li>GitHub</li>
+                <li>Visual Studio Code</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <div id="triangle3"></div>
+            <i class="fas fa-file-code"></i>
+            <h2>Projects</h2>
+            {% for project in projects %}
+            <div id="project-list">
+                <div id="project1" class="a-project">
+                    <h3><a href="{{ url_for('show_detail_of_project', id=project.id) }}" target="_blank" rel="noopener noreferrer">{{ project.title }}</a></h3>
+                    <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer" class="github-btn">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>
+                        {{ project.description }}
+                    </p>
+                    <p>
+                        Skills: {{ project.skills}}
+                    </p>
+                </div>
+            {% endfor %}
+            <div id="triangle4"></div>
+        </section>
+        <section id="contact">
+            <i class="fas fa-paper-plane"></i>
+            <h2>Contact Me</h2>
+            <p>
+                <i class="fas fa-envelope"></i>
+                asher@mailfence.com
+            </p>
+            <p>
+                <i class="fas fa-phone"></i>
+                678-863-2436
+            </p>
+        </section>
+{% endblock %}
